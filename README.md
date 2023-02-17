@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# yc-example-site
+
+Site prototype on next.js.
