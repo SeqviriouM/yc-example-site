@@ -77,6 +77,11 @@ const IndexPage = () => {
             setScoreError('Поле не заполнено');
         }
 
+        if (!parseInt(score, 10)) {
+            isValid = false;
+            setScoreError('Поле должно быть числовым');
+        }
+
         if (!isValid) {
             return;
         }

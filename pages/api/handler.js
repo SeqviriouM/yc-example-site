@@ -5,7 +5,7 @@ import {Pool} from 'pg';
 const PG_CONFIG = {
     user: 'user',
     host: 'rc1b-3y4pbno8x78gqlf4.mdb.yandexcloud.net',
-    database: 'confirmation',
+    database: 'competition',
     password: process.env.PG_PASSWORD,
     port: 6432,
     ssl: {
@@ -27,6 +27,12 @@ export default async function handler(req, res) {
         return res
             .status(400)
             .send({status: 'error', message: 'Поле "Результат" не может быть пустым.'});
+    }
+
+    if (!parseInt(score, 10)) {
+        return res
+            .status(400)
+            .send({status: 'error', message: 'Поле "Результат" должно быть числовым.'});
     }
 
     const client = await pool.connect();
